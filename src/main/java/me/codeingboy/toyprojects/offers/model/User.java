@@ -1,6 +1,7 @@
 package me.codeingboy.toyprojects.offers.model;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * Model class for user, which correspond to a record in user table
@@ -16,6 +17,15 @@ public class User {
     private Date registerTime;
     private Date lastLoginTime;
     private String lastLoginIPAddress;
+    private List<Role> roles;
+
+    public List<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(List<Role> roles) {
+        this.roles = roles;
+    }
 
     public String getNickname() {
         return nickname;

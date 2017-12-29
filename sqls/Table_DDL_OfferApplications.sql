@@ -1,0 +1,11 @@
+USE OffersWebsite;
+CREATE TABLE OfferApplications(
+  ID INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  UserID INT REFERENCES Users(ID),
+  OfferID INT REFERENCES Offers(ID),
+  Name TEXT NOT NULL,
+  Age INT NOT NULL,
+  Gender TINYINT NOT NULL,
+  Contact TEXT,
+  Remark TEXT
+);
