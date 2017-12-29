@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="${driver}"/>
+                <property name="url" value="${url}"/>
+                <property name="username" value="${username}"/>
+                <property name="password" value="${password}"/>
+            </dataSource>
+        </environment>
+    </environments>
+    <mappers>
+        <mapper resource="me.codeingboy.toyprojects.offers.mapper.UserMapper"/>
+        <mapper resource="me.codeingboy.toyprojects.offers.mapper.OfferApplicationMapper"/>
+        <mapper resource="me.codeingboy.toyprojects.offers.mapper.OfferMapper"/>
+        <mapper resource="me.codeingboy.toyprojects.offers.mapper.OrganizationMapper"/>
+        <mapper resource="me.codeingboy.toyprojects.offers.mapper.RoleMapper"/>
+    </mappers>
+    <typeAliases>
+        <typeAlias alias="User" type="me.codeingboy.toyprojects.offers.model.User"/>
+        <typeAlias alias="Offer" type="me.codeingboy.toyprojects.offers.model.Offer"/>
+        <typeAlias alias="Organization" type="me.codeingboy.toyprojects.offers.model.Organization"/>
+        <typeAlias alias="Role" type="me.codeingboy.toyprojects.offers.model.Role"/>
+        <typeAlias alias="OfferApplication" type="me.codeingboy.toyprojects.offers.model.OfferApplication"/>
+        <typeAlias alias="Permission" type="me.codeingboy.toyprojects.offers.model.Permission"/>
+    </typeAliases>
+</configuration>

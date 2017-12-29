@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="me.codeingboy.toyprojects.offers.mapper.UserMapper">
+    <sql id="tableName">OfferApplications</sql>
+    <sql id="primaryKeyColumnName">ID</sql>
+    <sql id="primaryKeyCondition">
+        <include refid="primaryKeyColumnName"/>
+        = #{ID}
+    </sql>
+
+    <!-- modify resultType to match model type -->
+    <select id="fetchAll" resultType="OfferApplication">
+        SELECT * FROM
+        <include refid="tableName"/>
+    </select>
+
+    <!-- modify resultType to match model type -->
+    <select id="fetch" resultType="OfferApplication">
+        SELECT * FROM
+        <include refid="tableName"/>
+        WHERE
+        <include refid="primaryKeyCondition"/>
+    </select>
+
+    <select id="count" resultType="long">
+        SELECT COUNT(*) FROM
+        <include refid="tableName"/>
+    </select>
+
+    <!-- modify this to match database schema -->
+    <insert id="add" useGeneratedKeys="true" keyProperty="ID">
+        INSERT INTO<include refid="tableName"/>(UserID, OfferID, Name, Age, Gender, Contact, Remark)
+        VALUES (#{user.ID}, #{offer.ID}, #{name}, #{age}, #{gender}, #{contact}, #{remark})
+    </insert>
+
+    <!-- modify this to match database schema -->
+    <update id="modify" keyProperty="ID">
+        UPDATE
+        <include refid="tableName"/>
+        SET
+        UserID = #{user.ID},
+        OfferID = #{offer.ID},
+        Name = #{name},
+        Age = #{age},
+        Gender = #{gender},
+        Contact = #{contact},
+        Remark = #{remark}
+        WHERE
+        <include refid="primaryKeyCondition"/>
+    </update>
+
+    <delete id="delete">
+        DELETE FROM
+        <include refid="tableName"/>
+        WHERE
+        <include refid="primaryKeyCondition"/>
+    </delete>
+
+    <!-- result mapping -->
+    <resultMap id="resultMap" type="OfferApplication">
+        <!-- simple property mapping -->
+        <id property="ID" column="ID"/>
+        <result property="name" column="Name"/>
+        <result property="age" column="Age"/>
+        <result property="name" column="Name"/>
+        <result property="contact" column="Contact"/>
+        <result property="gender" column="Gender"/>
+        <result property="remark" column="Remark"/>
+
+        <!-- association mapping -->
+        <association property="user" column="UserID" select="selectUser"/>
+        <association property="offer" column="OfferID" select="selectOffer"/>
+    </resultMap>
+
+    <!-- select statements for association mapping -->
+    <select id="selectUser" resultType="User">
+        SELECT *
+        FROM Users
+        WHERE ID = #{id}
+    </select>
+
+    <select id="selectOffer" resultType="Offer">
+        SELECT *
+        FROM Offer
+        WHERE ID = #{id}
+    </select>
+
+</mapper>

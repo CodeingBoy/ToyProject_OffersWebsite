@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="me.codeingboy.toyprojects.offers.mapper.UserMapper">
+    <sql id="tableName">Offers</sql>
+    <sql id="primaryKeyColumnName">ID</sql>
+    <sql id="primaryKeyCondition">
+        <include refid="primaryKeyColumnName"/>
+        = #{ID}
+    </sql>
+
+    <!-- modify resultType to match model type -->
+    <select id="fetchAll" resultType="Offer">
+        SELECT * FROM
+        <include refid="tableName"/>
+    </select>
+
+    <!-- modify resultType to match model type -->
+    <select id="fetch" resultType="Offer">
+        SELECT * FROM
+        <include refid="tableName"/>
+        WHERE
+        <include refid="primaryKeyCondition"/>
+    </select>
+
+    <select id="count" resultType="long">
+        SELECT COUNT(*) FROM
+        <include refid="tableName"/>
+    </select>
+
+    <!-- modify this to match database schema -->
+    <insert id="add" useGeneratedKeys="true" keyProperty="ID">
+        INSERT INTO<include refid="tableName"/>(Name, Description, HeaderImage)
+        VALUES (#{name}, #{description}, #{headerImage})
+    </insert>
+
+    <!-- modify this to match database schema -->
+    <update id="modify" keyProperty="ID">
+        UPDATE
+        <include refid="tableName"/>
+        SET
+        Name = #{name},
+        Descriptiton = #{description},
+        HeaderImage = #{headerImage}
+        WHERE
+        <include refid="primaryKeyCondition"/>
+    </update>
+
+    <delete id="delete">
+        DELETE FROM
+        <include refid="tableName"/>
+        WHERE
+        <include refid="primaryKeyCondition"/>
+    </delete>
+</mapper>
