@@ -10,6 +10,16 @@ package me.codeingboy.toyprojects.offers.model;
 public class Offer {
     private int ID;
     private String name;
+    private String description;
+    private String headerImage;
+
+    public String getHeaderImage() {
+        return headerImage;
+    }
+
+    public void setHeaderImage(String headerImage) {
+        this.headerImage = headerImage;
+    }
 
     public int getID() {
         return ID;
@@ -34,6 +44,4 @@ public class Offer {
     public void setDescription(String description) {
         this.description = description;
     }
-
-    private String description;
 }

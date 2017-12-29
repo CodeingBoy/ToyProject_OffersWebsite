@@ -1,0 +1,6 @@
+USE OffersWebsite;
+CREATE TABLE Organizations(
+  ID INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  Name TEXT NOT NULL,
+  Description TEXT
+);

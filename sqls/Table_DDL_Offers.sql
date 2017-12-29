@@ -1,0 +1,7 @@
+USE OffersWebsite;
+CREATE TABLE Offers(
+  ID INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  Name TEXT NOT NULL,
+  Description TEXT,
+  HeaderImage TEXT
+);
