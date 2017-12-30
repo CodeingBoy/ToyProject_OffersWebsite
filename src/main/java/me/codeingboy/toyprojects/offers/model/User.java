@@ -1,5 +1,7 @@
 package me.codeingboy.toyprojects.offers.model;
 
+import org.springframework.stereotype.Component;
+
 import java.util.Date;
 import java.util.List;
 
@@ -9,6 +11,7 @@ import java.util.List;
  * @author CodeingBoy
  * @version 1
  */
+@Component
 public class User {
     private int ID;
     private String username;

@@ -1,11 +1,14 @@
 package me.codeingboy.toyprojects.offers.model;
 
+import org.springframework.stereotype.Component;
+
 /**
  * Model class for offer's applications, each correspond to a record in table "OfferApplications"
  *
  * @author CodeingBoy
  * @version 1
  */
+@Component
 public class OfferApplication {
     private int ID;
     private User user;
