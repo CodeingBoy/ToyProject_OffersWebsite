@@ -16,6 +16,15 @@ public class Offer {
     private String description;
     private String headerImage;
 
+    public Offer() {
+    }
+
+    public Offer(String name, String description, String headerImage) {
+        this.name = name;
+        this.description = description;
+        this.headerImage = headerImage;
+    }
+
     public String getHeaderImage() {
         return headerImage;
     }

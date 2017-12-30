@@ -1,5 +1,6 @@
 package me.codeingboy.toyprojects.offers.model;
 
+import me.codeingboy.toyprojects.offers.utils.PasswordAuthentication;
 import org.springframework.stereotype.Component;
 
 import java.util.Date;
@@ -94,5 +95,9 @@ public class User {
 
     public void setHashedPassword(String hashedPassword) {
         this.hashedPassword = hashedPassword;
+    }
+
+    public boolean authenticate(String password) {
+        return new PasswordAuthentication().authenticate(password.toCharArray(), hashedPassword);
     }
 }
