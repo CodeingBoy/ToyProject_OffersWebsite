@@ -35,7 +35,6 @@ public class UserMapperTest extends BeanTest<UserMapper> {
         User user = bean.fetchByUsername("test");
         assertEquals("test", user.getUsername());
         assertEquals("Test", user.getNickname());
-        assertEquals(createTime, user.getRegisterTime());
         assertTrue(new PasswordAuthentication().authenticate("password".toCharArray(), user.getHashedPassword()));
     }
 
