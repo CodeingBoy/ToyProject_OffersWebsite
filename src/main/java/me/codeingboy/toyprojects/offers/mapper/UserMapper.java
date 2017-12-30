@@ -11,4 +11,5 @@ import me.codeingboy.toyprojects.offers.model.User;
  * @see User
  */
 public interface UserMapper extends BaseMapper<User, Integer> {
+    User fetchByUsername(String username);
 }

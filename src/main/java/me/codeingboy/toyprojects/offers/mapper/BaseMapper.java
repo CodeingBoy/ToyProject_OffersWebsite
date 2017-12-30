@@ -1,5 +1,7 @@
 package me.codeingboy.toyprojects.offers.mapper;
 
+import org.apache.ibatis.annotations.Mapper;
+
 import java.util.List;
 
 /**
@@ -8,6 +10,7 @@ import java.util.List;
  * @author CodeingBoy
  * @version 1
  */
+@Mapper
 public interface BaseMapper<T, K> {
     /**
      * Fetch all objects from database table

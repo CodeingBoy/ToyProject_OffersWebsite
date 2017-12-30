@@ -22,6 +22,16 @@ public class User {
     private String lastLoginIPAddress;
     private List<Role> roles;
 
+    public User() {
+    }
+
+    public User(String username, String hashedPassword, String nickname) {
+        this.username = username;
+        this.hashedPassword = hashedPassword;
+        this.nickname = nickname;
+        this.registerTime = new Date();
+    }
+
     public List<Role> getRoles() {
         return roles;
     }
