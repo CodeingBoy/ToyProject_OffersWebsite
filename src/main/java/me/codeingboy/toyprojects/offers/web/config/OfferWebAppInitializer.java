@@ -1,8 +1,6 @@
 package me.codeingboy.toyprojects.offers.web.config;
 
 import me.codeingboy.toyprojects.offers.config.SpringContextConfig;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
 /**
@@ -12,8 +10,6 @@ import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatche
  * @version 1
  */
 
-@Configuration
-@EnableWebMvc
 public class OfferWebAppInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
     @Override
     protected Class<?>[] getRootConfigClasses() {
