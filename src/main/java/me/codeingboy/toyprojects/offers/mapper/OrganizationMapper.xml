@@ -2,7 +2,7 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="me.codeingboy.toyprojects.offers.mapper.UserMapper">
+<mapper namespace="me.codeingboy.toyprojects.offers.mapper.OrganizationMapper">
     <sql id="tableName">Organizations</sql>
     <sql id="primaryKeyColumnName">ID</sql>
     <sql id="primaryKeyCondition">

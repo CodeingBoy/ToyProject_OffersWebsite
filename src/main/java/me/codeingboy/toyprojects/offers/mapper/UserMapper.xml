@@ -53,4 +53,10 @@
         WHERE
         <include refid="primaryKeyCondition"/>
     </delete>
+
+    <select id="fetchByUsername" resultType="User">
+        SELECT * FROM
+        <include refid="tableName"/>
+        WHERE Username = #{username}
+    </select>
 </mapper>
