@@ -121,6 +121,11 @@
             <artifactId>thymeleaf-extras-springsecurity4</artifactId>
             <version>RELEASE</version>
         </dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-validator</artifactId>
+            <version>RELEASE</version>
+        </dependency>
     </dependencies>
 
     <build>
