@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<ul class="side-nav fixed" id="slide-out" th:fragment="nav">
+    <li>
+        <div class="user-view">
+            <div class="background">
+                <img src="images/sidenav_background.jpg">
+            </div>
+            <a href="#user"><img class="circle responsive-img" src="images/default_user_icon.jpg"></a>
+            <span class="white-text name">User</span>
+        </div>
+    </li>
+    <li><a href="#!"><i class="material-icons">comment</i>我的简历</a></li>
+    <li><a class="waves-effect" href="#!"><i class="material-icons">account</i>个人资料</a></li>
+    <li>
+        <div class="divider"></div>
+    </li>
+    <li><a class="waves-effect" href="/login"><i class="material-icons">exit_to_app</i>登录/注册</a></li>
+    <li><a class="waves-effect" href="/logout"><i class="material-icons">exit_to_app</i>注销</a></li>
+</ul>
+</body>
+</html>

@@ -1,0 +1,15 @@
+header, main, footer {
+    padding-left: 300px;
+}
+
+@media only screen and (max-width: 992px) {
+    header, main, footer {
+        padding-left: 0;
+    }
+}
+
+h1.page-title {
+    color: #ee6e73;
+    font-size: 300%;
+    font-family: "微软雅黑", serif;
+}
