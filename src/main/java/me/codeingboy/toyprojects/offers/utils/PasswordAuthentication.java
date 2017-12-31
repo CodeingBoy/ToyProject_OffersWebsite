@@ -1,5 +1,7 @@
 package me.codeingboy.toyprojects.offers.utils;
 
+import org.springframework.security.crypto.password.PasswordEncoder;
+
 import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.PBEKeySpec;
 import java.security.NoSuchAlgorithmException;
@@ -19,7 +21,7 @@ import java.util.regex.Pattern;
  * @author erickson
  * @see <a href="http://stackoverflow.com/a/2861125/3474">StackOverflow</a>
  */
-public final class PasswordAuthentication {
+public final class PasswordAuthentication implements PasswordEncoder {
 
     /**
      * Each token produced by this class uses this identifier as a prefix.
@@ -134,4 +136,13 @@ public final class PasswordAuthentication {
         return authenticate(password.toCharArray(), token);
     }
 
+    @Override
+    public String encode(CharSequence charSequence) {
+        return hash(charSequence.toString().toCharArray());
+    }
+
+    @Override
+    public boolean matches(CharSequence charSequence, String s) {
+        return authenticate(s.toCharArray(), charSequence.toString());
+    }
 }
