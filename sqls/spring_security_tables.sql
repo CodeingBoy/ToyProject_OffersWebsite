@@ -23,3 +23,10 @@ create table group_members (
   group_id bigint unsigned not null,
   foreign key (group_id) references groups (id)
 ) engine = InnoDb;
+
+create table persistent_logins (
+  username varchar(64) not null,
+  series varchar(64) primary key,
+  token varchar(64) not null,
+  last_used timestamp not null
+);

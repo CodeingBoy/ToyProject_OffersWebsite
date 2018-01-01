@@ -1,6 +1,5 @@
 package me.codeingboy.toyprojects.offers.web.pojo.form;
 
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 /**
@@ -10,15 +9,12 @@ import javax.validation.constraints.Size;
  * @version 1
  */
 public class RegisterForm {
-    @NotNull
-    @Size(min = 4, max = 20)
+    @Size(min = 4, max = 20, message = "用户名应在 {min} 到 {max} 英文字符之间")
     private String username;
     private String nickname;
-    @NotNull
-    @Size(min = 6, max = 20)
+    @Size(min = 6, max = 20, message = "密码应在 {min} 到 {max} 位之间")
     private String password;
-    @NotNull
-    @Size(min = 6, max = 20)
+    @Size(min = 6, max = 20, message = "确认密码应在 {min} 到 {max} 位之间")
     private String confirmPassword;
 
     public String getUsername() {

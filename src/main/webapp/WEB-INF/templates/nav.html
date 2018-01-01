@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <body>
 <ul class="side-nav fixed" id="slide-out" th:fragment="nav">
     <li>
@@ -8,16 +8,27 @@
                 <img src="images/sidenav_background.jpg">
             </div>
             <a href="#user"><img class="circle responsive-img" src="images/default_user_icon.jpg"></a>
-            <span class="white-text name">User</span>
+            <span class="white-text name" sec:authentication="name">访客</span>
         </div>
     </li>
-    <li><a href="#!"><i class="material-icons">comment</i>我的简历</a></li>
-    <li><a class="waves-effect" href="#!"><i class="material-icons">account</i>个人资料</a></li>
+    <li sec:authorize="isAuthenticated()"><a href="#!"><i class="material-icons">comment</i>我的简历</a></li>
+    <li sec:authorize="isAuthenticated()"><a class="waves-effect" href="#!"><i
+            class="material-icons">account</i>个人资料</a></li>
+    <li sec:authorize='hasRole("organization") || hasRole("admin")'>
+        <div class="divider"></div>
+    </li>
+    <li sec:authorize-url="/manage/offer"><a th:href="@{/manage/offer}">职位管理</a></li>
+    <li sec:authorize-url="/manage/user"><a th:href="@{/manage/user}">用户管理</a></li>
     <li>
         <div class="divider"></div>
     </li>
-    <li><a class="waves-effect" href="/login"><i class="material-icons">exit_to_app</i>登录/注册</a></li>
-    <li><a class="waves-effect" href="/logout"><i class="material-icons">exit_to_app</i>注销</a></li>
+    <li sec:authorize="!isAuthenticated()"><a class="waves-effect" href="/login"><i
+            class="material-icons">exit_to_app</i>登录/注册</a></li>
+    <form sec:authorize="isAuthenticated()" th:action="@{/logout}" method="post">
+        <button type="submit" class="btn waves-effect waves-light" style="width: 100%">
+            <i class="material-icons left">exit_to_app</i> 注销
+        </button>
+    </form>
 </ul>
 </body>
 </html>

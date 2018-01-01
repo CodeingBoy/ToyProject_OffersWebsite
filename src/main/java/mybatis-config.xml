@@ -10,6 +10,7 @@
         <typeAlias alias="Role" type="me.codeingboy.toyprojects.offers.model.Role"/>
         <typeAlias alias="OfferApplication" type="me.codeingboy.toyprojects.offers.model.OfferApplication"/>
         <typeAlias alias="Permission" type="me.codeingboy.toyprojects.offers.model.Permission"/>
+        <typeAlias alias="Authority" type="me.codeingboy.toyprojects.offers.model.Authority"/>
         <package name="me.codeingboy.toyprojects.offers.model"/>
     </typeAliases>
     <environments default="development">
@@ -29,5 +30,6 @@
         <mapper resource="me.codeingboy.toyprojects.offers.mapper.OfferMapper"/>
         <mapper resource="me.codeingboy.toyprojects.offers.mapper.OrganizationMapper"/>
         <mapper resource="me.codeingboy.toyprojects.offers.mapper.RoleMapper"/>
+        <mapper resource="me.codeingboy.toyprojects.offers.mapper.AuthorityMapper"/>
     </mappers>
 </configuration>

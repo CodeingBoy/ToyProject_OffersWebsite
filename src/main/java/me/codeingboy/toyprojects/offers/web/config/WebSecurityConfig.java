@@ -40,7 +40,13 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 //                .antMatchers("/login").requiresSecure()
 //                .antMatchers("/register").requiresSecure()
 //                .and()
-                .rememberMe().tokenValiditySeconds(7 * 4 * 3600).key("offersWebSiteKey");
+                .rememberMe().tokenValiditySeconds(7 * 4 * 3600).key("offersWebSiteKey")
+                .and()
+                .formLogin().loginPage("/login")
+                .defaultSuccessUrl("/?loginsucceed")
+                .and()
+                .logout().logoutSuccessUrl("/login?logout");
+//                .successForwardUrl("/").failureForwardUrl("/login");
     }
 
     @Override
@@ -48,7 +54,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         auth
                 .jdbcAuthentication()
                 .dataSource(dataSource)
-                .usersByUsernameQuery("SELECT Username, Password, TRUE FROM Users " +
+                .usersByUsernameQuery("SELECT Username, HashedPassword, TRUE FROM Users " +
                         "WHERE Username = ?")
                 .passwordEncoder(new PasswordAuthentication());
     }

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html xmlns:layout="http://www.w3.org/1999/xhtml" layout:decorate="~{template}">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.w3.org/1999/xhtml" layout:decorate="~{template}">
 <head>
-    <title>登录</title>
+    <title>注册</title>
     <meta charset="UTF-8">
     <script type="text/javascript" src="/js/index.js"></script>
 </head>
@@ -11,13 +11,20 @@
         <p class="col s12">已有账户？<a href="/login">点此登录</a></p>
     </div>
     <div class="row">
-        <form class="col s12" method="post">
+        <form class="col s12" method="post" th:action="@{/register}" th:object="${registerForm}">
+            <div class="card row s12 red darken-4" th:if="${#fields.hasErrors()}">
+                <div class="card-content white-text">
+                    <ul>
+                        <li th:each="err : ${#fields.errors()}" th:text="${err}">输入错误</li>
+                    </ul>
+                </div>
+            </div>
             <div class="input-field col s12">
-                <input id="username" name="username" type="text" class="validate">
+                <input id="username" name="username" type="text" class="validate" th:field="*{username}">
                 <label for="username">用户名</label>
             </div>
             <div class="input-field col s12">
-                <input id="nickname" name="nickname" type="text" class="validate">
+                <input id="nickname" name="nickname" type="text" class="validate" th:field="*{nickname}">
                 <label for="nickname">昵称</label>
             </div>
             <div class="input-field col s12">

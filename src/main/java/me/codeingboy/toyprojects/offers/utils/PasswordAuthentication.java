@@ -143,6 +143,7 @@ public final class PasswordAuthentication implements PasswordEncoder {
 
     @Override
     public boolean matches(CharSequence charSequence, String s) {
-        return authenticate(s.toCharArray(), charSequence.toString());
+        System.out.println(authenticate(charSequence.toString().toCharArray(), s));
+        return authenticate(charSequence.toString().toCharArray(), s);
     }
 }

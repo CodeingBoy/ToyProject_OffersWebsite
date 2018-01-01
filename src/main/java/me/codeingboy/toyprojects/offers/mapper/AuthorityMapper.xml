@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="me.codeingboy.toyprojects.offers.mapper.AuthorityMapper">
+    <sql id="tableName">authorities</sql>
+    <sql id="primaryKeyColumnName">user_id</sql>
+    <sql id="primaryKeyCondition">
+        <include refid="primaryKeyColumnName"/>
+        = #{userID}
+    </sql>
+
+    <!-- modify resultType to match model type -->
+    <select id="fetchAll" resultType="Authority">
+        SELECT * FROM
+        <include refid="tableName"/>
+    </select>
+
+    <!-- modify resultType to match model type -->
+    <select id="fetch" resultType="Authority">
+        SELECT * FROM
+        <include refid="tableName"/>
+        WHERE
+        <include refid="primaryKeyCondition"/>
+    </select>
+
+    <select id="count" resultType="long">
+        SELECT COUNT(*) FROM
+        <include refid="tableName"/>
+    </select>
+
+    <!-- modify this to match database schema -->
+    <insert id="add">
+        INSERT INTO<include refid="tableName"/>(user_id, username, authority)
+        VALUES (#{userID}, #{username}, #{authority})
+    </insert>
+
+    <!-- modify this to match database schema -->
+    <update id="modify" keyProperty="userID">
+        UPDATE
+        <include refid="tableName"/>
+        SET
+        authority = #{authority}
+        WHERE
+        <include refid="primaryKeyCondition"/>
+    </update>
+
+    <delete id="delete">
+        DELETE FROM
+        <include refid="tableName"/>
+        WHERE
+        <include refid="primaryKeyCondition"/>
+    </delete>
+</mapper>

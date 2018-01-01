@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.w3.org/1999/xhtml" layout:decorate="~{template}">
-<head >
+<head>
     <title>菜才网</title>
     <meta charset="UTF-8">
     <script type="text/javascript" src="/js/index.js"></script>
 </head>
 <body>
+
 <main layout:fragment="content">
     <div class="slider">
         <ul class="slides">
@@ -17,14 +18,14 @@
                 </div>
             </li>
             <li>
-                <img src="images/slider_2.jpg">
+                <img src="/images/slider_2.jpg">
                 <div class="caption left-align">
                     <h3>Left Aligned Caption</h3>
                     <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
                 </div>
             </li>
             <li>
-                <img src="images/slider_3.jpg">
+                <img src="/images/slider_3.jpg">
                 <div class="caption right-align">
                     <h3>滑稽协会招新</h3>
                     <h5 class="light grey-text text-lighten-3">你竟然是这样的滑稽</h5>
@@ -71,6 +72,14 @@
             </div>
         </div>
     </div>
+    <script th:inline="javascript">
+        $(function () {
+            var loginSucceed = [[${param.loginSucceed != null}]];
+            if (loginSucceed) {
+                Materialize.toast('欢迎回来，' + [[${#authentication.name}]], 4000);
+            }
+        });
+    </script>
 </main>
 </body>
 </html>
