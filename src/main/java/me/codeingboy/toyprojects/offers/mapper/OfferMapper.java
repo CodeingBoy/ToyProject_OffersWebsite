@@ -2,6 +2,8 @@ package me.codeingboy.toyprojects.offers.mapper;
 
 import me.codeingboy.toyprojects.offers.model.Offer;
 
+import java.util.List;
+
 /**
  * Mapper interface for class {@link Offer}
  *
@@ -11,4 +13,7 @@ import me.codeingboy.toyprojects.offers.model.Offer;
  * @see Offer
  */
 public interface OfferMapper extends BaseMapper<Offer, Integer> {
+
+    List<Offer> fetchIndexPageOffers();
+
 }

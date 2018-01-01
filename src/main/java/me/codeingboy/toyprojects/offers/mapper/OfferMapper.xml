@@ -53,4 +53,10 @@
         WHERE
         <include refid="primaryKeyCondition"/>
     </delete>
+
+    <select id="fetchIndexPageOffers" resultType="Offer">
+        SELECT * FROM
+        <include refid="tableName"/>
+        LIMIT 6
+    </select>
 </mapper>
