@@ -21,7 +21,6 @@ public class User {
     private Date registerTime;
     private Date lastLoginTime;
     private String lastLoginIPAddress;
-    private List<Role> roles;
 
     public User() {
     }
@@ -31,14 +30,6 @@ public class User {
         this.hashedPassword = hashedPassword;
         this.nickname = nickname;
         this.registerTime = new Date();
-    }
-
-    public List<Role> getRoles() {
-        return roles;
-    }
-
-    public void setRoles(List<Role> roles) {
-        this.roles = roles;
     }
 
     public String getNickname() {
