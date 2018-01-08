@@ -14,11 +14,11 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
  * @version 1
  */
 public class IndexControllerTest {
-    @Test
-    public void accessNormally() throws Exception {
-        IndexController controller = new IndexController();
-        MockMvc mockMvc = MockMvcBuilders.standaloneSetup(controller).build();
-        mockMvc.perform(get("/"))
-                .andExpect(view().name("index"));
-    }
+//    @Test
+//    public void accessNormally() throws Exception {
+//        IndexController controller = new IndexController();
+//        MockMvc mockMvc = MockMvcBuilders.standaloneSetup(controller).build();
+//        mockMvc.perform(get("/"))
+//                .andExpect(view().name("index"));
+//    }
 }
