@@ -18,7 +18,7 @@
                 </div>
             </li>
             <li th:each="o : ${offerList}">
-                <img th:if="${o.headerImage != null}" th:src="${'/images/' + ${o.headerImage}}">
+                <img th:if="${o.headerImage != null}" th:src="${'/images/' + o.headerImage}">
                 <img th:if="${o.headerImage == null}" src="/images/defaultOfferImage.jpg">
                 <div class="caption right-align">
                     <h3 th:text="${o.name}"></h3>
@@ -31,7 +31,7 @@
         <div th:each="o : ${offerList}" class="col s6 m4">
             <div class="card">
                 <div class="card-image">
-                    <img th:if="${o.headerImage != null}" th:src="${'/images/' + ${o.headerImage}}">
+                    <img th:if="${o.headerImage != null}" th:src="${'/images/' + o.headerImage}">
                     <img th:if="${o.headerImage == null}" src="/images/defaultOfferImage.jpg">
                     <span class="card-title" th:text="${o.name}">Offer Title</span>
                 </div>
